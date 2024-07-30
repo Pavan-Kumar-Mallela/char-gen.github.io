@@ -1,21 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <bds />
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js" defer></script>
-    <title>BigDevSoon - Dashboard Project</title>
-  </head>
-  <body>
-    <!-- Place below is for your own exciting code -->
-    <p>Time to write some code! 👀</p>
-    <!-- Change the [ME] part to your own name/GitHub link -->
-    <div class="footer">
-      <a href="https://bigdevsoon.me" target="_blank" rel="noopener noreferrer"
-        >Project by BigDevSoon</a
-      >
-      |
-      <span>Built with ❤️ by [ME]</span>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="container bg-white shadow rounded-xl p-8 max-w-4xl">
+    <h1 class="text-3xl font-bold text-center mb-8">Character Generator</h1>
+    <div class="flex">
+      <!-- Character Preview -->
+      <div class="w-1/2 p-4">
+        <div id="character-preview" class="bg-purple-500 p-4 rounded-lg flex items-center justify-center">
+          <img src="character-placeholder.png" alt="Character" id="character-image" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-4 flex justify-between">
+          <button id="randomize-btn" class="bg-blue-500 text-white py-2 px-4 rounded">Random</button>
+          <button id="download-btn" class="bg-gray-500 text-white py-2 px-4 rounded">Download</button>
+        </div>
+      </div>
+
+      <!-- Customization Options -->
+      <div class="w-1/2 p-4">
+        <h2 class="text-xl font-bold mb-4">Customize Look</h2>
+        <div id="customize-options" class="space-y-4">
+          <div>
+            <button class="option-btn" data-type="hair">Hair</button>
+            <button class="option-btn" data-type="eyes">Eyes</button>
+            <button class="option-btn" data-type="ears">Ears</button>
+            <button class="option-btn" data-type="mouth">Mouth</button>
+            <button class="option-btn active" data-type="background">Background</button>
+            <button class="option-btn" data-type="accessories">Accessories</button>
+          </div>
+          <div id="background-options" class="grid grid-cols-3 gap-2">
+            <div class="color-option bg-gray-400" data-color="bg-gray-400"></div>
+            <div class="color-option bg-blue-500" data-color="bg-blue-500"></div>
+            <div class="color-option bg-purple-500" data-color="bg-purple-500"></div>
+            <div class="color-option bg-green-500" data-color="bg-green-500"></div>
+            <div class="color-option bg-yellow-500" data-color="bg-yellow-500"></div>
+            <div class="color-option bg-orange-500" data-color="bg-orange-500"></div>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
