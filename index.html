@@ -16,8 +16,13 @@
     <div class="flex">
       <!-- Character Preview -->
       <div class="w-1/2 p-4">
-        <div id="character-preview" class="bg-purple-500 p-4 rounded-lg flex items-center justify-center">
-          <img src="assets/character-images-left-side/default/basic-character.png" alt="Character" id="character-image" class="w-full h-full object-cover">
+        <div id="character-preview" class="bg-purple-500 p-4 rounded-lg flex items-center justify-center relative">
+          <img src="assets/character-images-left-side/default/basic-character.png" alt="Character" id="base-character" class="w-full h-full object-cover absolute">
+          <img src="" alt="Hair" id="character-hair" class="w-full h-full object-cover absolute">
+          <img src="" alt="Eyes" id="character-eyes" class="w-full h-full object-cover absolute">
+          <img src="" alt="Ears" id="character-ears" class="w-full h-full object-cover absolute">
+          <img src="" alt="Mouth" id="character-mouth" class="w-full h-full object-cover absolute">
+          <img src="" alt="Accessories" id="character-accessories" class="w-full h-full object-cover absolute">
         </div>
         <div class="mt-4 flex justify-between">
           <button id="randomize-btn" class="bg-blue-500 text-white py-2 px-4 rounded">Random</button>
@@ -44,6 +49,32 @@
             <div class="color-option bg-green-500" data-color="bg-green-500"></div>
             <div class="color-option bg-yellow-500" data-color="bg-yellow-500"></div>
             <div class="color-option bg-orange-500" data-color="bg-orange-500"></div>
+          </div>
+          <div id="hair-options" class="hidden grid grid-cols-3 gap-2">
+            <img src="assets/character-images-left-side/hair/hair-1.png" alt="Hair 1" class="option-image" data-type="hair" data-id="hair-1">
+            <img src="assets/character-images-left-side/hair/hair-2.png" alt="Hair 2" class="option-image" data-type="hair" data-id="hair-2">
+            <img src="assets/character-images-left-side/hair/hair-3.png" alt="Hair 3" class="option-image" data-type="hair" data-id="hair-3">
+            <!-- Add more hair options as needed -->
+          </div>
+          <div id="eyes-options" class="hidden grid grid-cols-3 gap-2">
+            <img src="assets/character-images-left-side/eyes/eye-1.png" alt="Eyes 1" class="option-image" data-type="eyes" data-id="eye-1">
+            <img src="assets/character-images-left-side/eyes/eye-2.png" alt="Eyes 2" class="option-image" data-type="eyes" data-id="eye-2">
+            <!-- Add more eye options as needed -->
+          </div>
+          <div id="ears-options" class="hidden grid grid-cols-3 gap-2">
+            <img src="assets/character-images-left-side/ears/ear-1.png" alt="Ears 1" class="option-image" data-type="ears" data-id="ear-1">
+            <img src="assets/character-images-left-side/ears/ear-2.png" alt="Ears 2" class="option-image" data-type="ears" data-id="ear-2">
+            <!-- Add more ear options as needed -->
+          </div>
+          <div id="mouth-options" class="hidden grid grid-cols-3 gap-2">
+            <img src="assets/character-images-left-side/mouth/mouth-1.png" alt="Mouth 1" class="option-image" data-type="mouth" data-id="mouth-1">
+            <img src="assets/character-images-left-side/mouth/mouth-2.png" alt="Mouth 2" class="option-image" data-type="mouth" data-id="mouth-2">
+            <!-- Add more mouth options as needed -->
+          </div>
+          <div id="accessories-options" class="hidden grid grid-cols-3 gap-2">
+            <img src="assets/character-images-left-side/accessories/accessory-1.png" alt="Accessory 1" class="option-image" data-type="accessories" data-id="accessory-1">
+            <img src="assets/character-images-left-side/accessories/accessory-2.png" alt="Accessory 2" class="option-image" data-type="accessories" data-id="accessory-2">
+            <!-- Add more accessory options as needed -->
           </div>
         </div>
       </div>
