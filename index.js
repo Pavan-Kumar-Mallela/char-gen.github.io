@@ -12,15 +12,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const optionImages = document.querySelectorAll('.option-image');
 
   // Show or hide the customization options based on the selected category
-  function showOptions(type) {
-    document.querySelectorAll('#customize-options > div').forEach(div => {
-      div.classList.add('hidden');
-    });
-    const optionsDiv = document.getElementById(`${type}-options`);
-    if (optionsDiv) {
-      optionsDiv.classList.remove('hidden');
-    }
+function showOptions(type) {
+  // Hide all options sections
+  document.querySelectorAll('#customize-options > div').forEach(div => {
+    div.classList.add('hidden');
+  });
+  // Show the selected options section
+  const optionsDiv = document.getElementById(`${type}-options`);
+  if (optionsDiv) {
+    optionsDiv.classList.remove('hidden');
   }
+}
 
   // Add event listeners to option buttons
   optionButtons.forEach(button => {
@@ -47,16 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listeners to option images
-  optionImages.forEach(img => {
-    img.addEventListener('click', function () {
-      const type = this.getAttribute('data-type');
-      const src = this.getAttribute('src');
-      console.log(`Image clicked: ${type}, ${src}`); // Debugging line
-      if (type && characterElements[type] && src) {
-        characterElements[type].src = src;
-      }
-    });
+optionImages.forEach(img => {
+  img.addEventListener('click', function () {
+    const type = this.getAttribute('data-type');
+    const src = this.getAttribute('src');
+    if (type && characterElements[type] && src) {
+      characterElements[type].src = src;
+      // Adjust z-index if necessary
+      characterElements[type].style.zIndex = type === 'accessories' ? '2' : '1';
+    }
   });
+});
 
   // Randomize button logic
   document.getElementById('randomize-btn').addEventListener('click', function () {
