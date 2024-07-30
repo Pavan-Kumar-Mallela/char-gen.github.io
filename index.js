@@ -2,51 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const characterPreview = document.getElementById('character-preview');
   const optionButtons = document.querySelectorAll('.option-btn');
   const colorOptions = document.querySelectorAll('.color-option');
-  const characterImage = document.getElementById('character-image');
-  const optionImages = document.querySelectorAll('.option-image');
-
-  // Initialize character elements
-  const characterElements = {
-    hair: document.getElementById('character-hair'),
-    eyes: document.getElementById('character-eyes'),
-    ears: document.getElementById('character-ears'),
-    mouth: document.getElementById('character-mouth'),
-    accessories: document.getElementById('character-accessories')
-  };
-
-  // Add event listeners to option buttons
-  optionButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      optionButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-      const type = this.getAttribute('data-type');
-      showOptions(type);
-    });
-  });
-
-  // Add event listeners to color options
-  colorOptions.forEach(color => {
-    color.addEventListener('click', function () {
-      const selectedColor = this.getAttribute('data-color');
-      characterPreview.className = `${selectedColor} p-4 rounded-lg flex items-center justify-center relative`;
-    });
-  });
-
-  // Add event listeners to option images
-  optionImages.forEach(img => {
-    img.addEventListener('click', function () {
-      const type = this.getAttribute('data-type');
-      const id = this.getAttribute('data-id');
-      const src = this.getAttribute('src');
-      characterElements[type].src = src;
-    });
-  });
-
-  // Randomize button logic
-document.addEventListener('DOMContentLoaded', function () {
-  const characterPreview = document.getElementById('character-preview');
-  const optionButtons = document.querySelectorAll('.option-btn');
-  const colorOptions = document.querySelectorAll('.color-option');
   const characterElements = {
     hair: document.getElementById('character-hair'),
     eyes: document.getElementById('character-eyes'),
@@ -61,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('#customize-options > div').forEach(div => {
       div.classList.add('hidden');
     });
-    document.getElementById(`${type}-options`).classList.remove('hidden');
+    const optionsDiv = document.getElementById(`${type}-options`);
+    if (optionsDiv) {
+      optionsDiv.classList.remove('hidden');
+    }
   }
 
   // Add event listeners to option buttons
@@ -70,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
       optionButtons.forEach(btn => btn.classList.remove('active'));
       this.classList.add('active');
       const type = this.getAttribute('data-type');
-      showOptions(type);
+      if (type) {
+        showOptions(type);
+      }
     });
   });
 
@@ -78,7 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
   colorOptions.forEach(color => {
     color.addEventListener('click', function () {
       const selectedColor = this.getAttribute('data-color');
-      characterPreview.className = `${selectedColor} p-4 rounded-lg flex items-center justify-center relative`;
+      if (selectedColor) {
+        characterPreview.className = `${selectedColor} p-4 rounded-lg flex items-center justify-center relative`;
+      }
     });
   });
 
@@ -87,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('click', function () {
       const type = this.getAttribute('data-type');
       const src = this.getAttribute('src');
-      characterElements[type].src = src;
+      if (type && characterElements[type] && src) {
+        characterElements[type].src = src;
+      }
     });
   });
 
@@ -101,9 +65,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Randomize other character features
     Object.keys(characterElements).forEach(type => {
       const options = Array.from(document.querySelectorAll(`#${type}-options .option-image`));
-      const randomOption = options[Math.floor(Math.random() * options.length)];
-      characterElements[type].src = randomOption.getAttribute('src');
+      if (options.length > 0) {
+        const randomOption = options[Math.floor(Math.random() * options.length)];
+        if (randomOption) {
+          characterElements[type].src = randomOption.getAttribute('src');
+        }
+      }
     });
   });
 });
-
