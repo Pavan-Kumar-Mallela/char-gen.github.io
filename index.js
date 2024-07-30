@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       optionButtons.forEach(btn => btn.classList.remove('active'));
       this.classList.add('active');
       const type = this.getAttribute('data-type');
+      console.log(`Button clicked: ${type}`); // Debugging line
       if (type) {
         showOptions(type);
       }
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   colorOptions.forEach(color => {
     color.addEventListener('click', function () {
       const selectedColor = this.getAttribute('data-color');
+      console.log(`Color selected: ${selectedColor}`); // Debugging line
       if (selectedColor) {
         characterPreview.className = `${selectedColor} p-4 rounded-lg flex items-center justify-center relative`;
       }
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('click', function () {
       const type = this.getAttribute('data-type');
       const src = this.getAttribute('src');
+      console.log(`Image clicked: ${type}, ${src}`); // Debugging line
       if (type && characterElements[type] && src) {
         characterElements[type].src = src;
       }
@@ -74,3 +77,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
